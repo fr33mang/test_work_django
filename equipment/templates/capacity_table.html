@@ -10,7 +10,7 @@
                 <th>Снаряженная масса</th>
                 <th>Максимальная вместимость</th>
                 <th>Текущая масса</th>
-                <th>Перегруз в %</th>
+                <th>Перегруз</th>
 
             </tr>
         </thead>
@@ -24,7 +24,7 @@
                     <td> {{ v.vehicle_model.running_order_mass }}</td>
                     <td> {{ v.vehicle_model.max_capacity }}</td>
                     <td> {{ v.current_mass }}</td>
-                    <td> {{ v.overload }}%</td>
+                    <td> {{ v.overload|floatformat }}%</td>
                 </tr>
 
             {% endfor %}
