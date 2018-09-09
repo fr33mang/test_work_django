@@ -25,7 +25,7 @@
     <script>
 
         function getVehicles(model) {
-            $.get('get_vehicles', { model: model})
+            $.get('/equipment/get_vehicles', { model: model})
                 .done(function(result){
                     $('#table').html(result)
                 })
