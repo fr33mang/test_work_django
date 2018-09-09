@@ -1,0 +1,36 @@
+<div id="table">
+
+    <br>
+
+    <table class="table table-striped" style="width:50%">
+        <thead class="">
+            <tr>
+                <th>Бортовой номер</th>
+                <th>Модель</th>
+                <th>Снаряженная масса</th>
+                <th>Максимальная вместимость</th>
+                <th>Текущая масса</th>
+                <th>Перегруз в %</th>
+
+            </tr>
+        </thead>
+        {% if veh %}
+            
+            {% for v in veh %}
+                
+                <tr>
+                    <td> {{ v.board_number }} </td>
+                    <td> {{ v.vehicle_model }}</td>
+                    <td> {{ v.vehicle_model.running_order_mass }}</td>
+                    <td> {{ v.vehicle_model.max_capacity }}</td>
+                    <td> {{ v.current_mass }}</td>
+                    <td> {{ v.overload }}%</td>
+                </tr>
+
+            {% endfor %}
+
+
+        {% endif %}
+    </table>
+
+</div>

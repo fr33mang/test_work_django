@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+    <div class="form-group row" >
+        <div class="col-xs-2">    
+            <select class="form-control col-xs-2" name="" id="models_select">
+                <option value="all">Все модели</option>
+
+                {% for m in models %}
+                    <option value="{{ m.id }}"> {{ m.vehicle_brand.name }} {{ m.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    {% include "capacity_table.html" with veh=vehicles %}
+    
+{% endblock content %}
+
+<!-- TODO: В файл -->
+{% block js %}
+
+    <script>
+
+        function getVehicles(model) {
+            $.get('get_vehicles', { model: model})
+                .done(function(result){
+                    $('#table').html(result)
+                })
+                .fail(function(){
+                    alert('get_vehicles error');
+                })
+        };
+
+        $('#models_select').on('change', function(){
+            getVehicles(this.value);
+        });
+
+    </script>
+
+{% endblock js %}
