@@ -11,4 +11,5 @@ pylint-django==2.0.2
 pylint-plugin-utils==0.4
 pytz==2018.5
 six==1.11.0
+whitenoise==4.0
 wrapt==1.10.11
